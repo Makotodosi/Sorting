@@ -10,7 +10,7 @@ void print(int num[], int size) //вывод массива на экран
 	}
 }
 
-void puzirok(int num[], int size) //сортировка пузырьком
+void bubble(int num[], int size) //сортировка пузырьком
 {
 	for (int i = 0; i < size; i++) //проходим массив size^2 раз, чтобы все цифры встали на свои места 
 	{
@@ -35,7 +35,7 @@ int main()
 	cout << "Было: " << endl;
 	print(num, n);
 
-	puzirok(num, n);
+	bubble(num, n);
 
 	cout << "\nСтало: \n";
 	print(num, n);
