@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+
+void print(int num[], int size) //вывод массива на экран
+{
+	for (int i = 0; i < size; i++)
+	{
+		cout << num[i] << "   ";
+	}
+}
+
+void сhoice(int num[], int size) //сортировка выбором
+{
+	// Перебераем массив, последний элемент не рассматривает, так как он сам встанет на свое место в конце цикла 
+	for (int i = 0; i < size - 1; i++)
+	{
+		int indexMin = i; //индекс минимального элемента (для начала, пусть это будет начальный элемент)
+		for (int j = i + 1; j < size; j++) //ищем элемент, который меньше того, что хранится в indexMin
+		{
+			if (num[j] < num[indexMin]) //если такой найден, то
+				indexMin = j; //сохраняем его в indexMin
+		}
+		swap(num[i], num[indexMin]); //меняем местами найденный минимум с i-тым элементом
+	}
+}
+
+int main()
+{
+	setlocale (LC_ALL, "ru");
+
+	const int n = 10;
+	int num[n] = { 8, 5, 10, 2, 3, 6, 1, 4, 7, 9 };
+	cout << "Было: " << endl;
+	print(num, n);
+
+	сhoice(num, n);
+
+	cout << "\nСтало: \n";
+	print(num, n);
+}
